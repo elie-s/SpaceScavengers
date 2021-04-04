@@ -17,5 +17,10 @@ namespace Elie.Ship
         [Header("Movement")]
         public float maxSpeed = 10.0f;
         public float maxSpeedIncreasingSpeed = 1.0f;
+        public float thrustIncreasingRate = 0.30f;
+        public float thrustDecreasingRate = 0.21f;
+        public AnimationCurve thrustCurve = default;
+        public float speedThrustRatio = default;
+        public AnimationCurve speedThrustCurve = default;
     }
 }

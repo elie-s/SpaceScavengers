@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b271a4a1fa99c48852eea4543ed3fe, type: 3}
+  m_Name: Inputs1
+  m_EditorClassIdentifier: 
+  _pitch: 3
+  _yaw: 0
+  _roll: 0
+  _strafeRight: 0
+  _strafeUp: 0
+  _strafeForward: 0
+  _maxSpeed: 0
+  _maxThrust: 0
+  _thrustBase: 0
+  _thrustMultiplier: 0

@@ -22,8 +22,19 @@ namespace Elie.Ship
         //Movement
         private float currentSpeed;
         private float maxSpeed;
+        private float thrust;
+        private float linearThrustValue;
+        private Vector3 strafe;
+        private Vector3 velocity;
 
         #region MONOBEHAVIOUR
+
+        private void Update()
+        {
+            UpdateVelocity();
+            Move();
+        }
+
         private void FixedUpdate()
         {
             ApplyRotations();
@@ -43,7 +54,7 @@ namespace Elie.Ship
         
         public void IncreaseRoll(float _value)
         {
-            roll += _value * settings.rollSpeed * Time.deltaTime;
+            roll += -_value * settings.rollSpeed * Time.deltaTime;
 
             if (roll > 360.0f )
             {
@@ -59,7 +70,7 @@ namespace Elie.Ship
         
         public void IncreaseYaw(float _value)
         {
-            yaw += _value * settings.yawSpeed * Time.deltaTime;
+            yaw += -_value * settings.yawSpeed * Time.deltaTime;
 
             if (yaw > 360.0f )
             {
@@ -75,7 +86,7 @@ namespace Elie.Ship
         
         public void IncreasePitch(float _value)
         {
-            pitch += _value * settings.pitchSpeed * Time.deltaTime;
+            pitch += -_value * settings.pitchSpeed * Time.deltaTime;
 
             if (pitch > 360.0f )
             {
@@ -94,12 +105,42 @@ namespace Elie.Ship
 
         public void IncreaseMaxSpeed(float _value)
         {
-            maxSpeed = Mathf.Clamp(0.0f, settings.maxSpeed,
-                maxSpeed + settings.maxSpeedIncreasingSpeed * _value * Time.deltaTime);
+            if (_value == 0.0f) return;
+
+            maxSpeed = Mathf.Clamp(maxSpeed + settings.maxSpeedIncreasingSpeed * _value * Time.deltaTime, 0.0f, settings.maxSpeed);
             
-            //speedGauge.UpdateValues(Mathf.Round());
+            speedGauge.UpdateSpeedValues(Mathf.RoundToInt(currentSpeed).ToString(), maxSpeed / settings.maxSpeed, currentSpeed / settings.maxSpeed);
+
+            //Debug.Log(maxSpeed);
         }
 
+        public void IncreaseThrust(float _value)
+        {
+            if (_value == 0.0f) return;
+            linearThrustValue = Mathf.Clamp(linearThrustValue + settings.thrustIncreasingRate * _value * Time.deltaTime, 0.0f, 1.0f);
+            
+            thrust = settings.thrustCurve.Evaluate(linearThrustValue);
+            
+            speedGauge.UpdateThrustValues(thrust);
+        }
+
+        public void SetStrafe(float _right, float _up, float _forward)
+        {
+            strafe = new Vector3(_right, _up, _forward).normalized;
+        }
+
+        private void Move()
+        {
+            transform.position += velocity * Time.deltaTime;
+        }
+
+        private void UpdateVelocity()
+        {
+            velocity += strafe * settings.speedThrustCurve.Evaluate(thrust) * settings.speedThrustRatio *
+                        Time.deltaTime;
+
+            if (velocity.magnitude <= maxSpeed) velocity = velocity.normalized * maxSpeed;
+        }
 
         #endregion
     }
