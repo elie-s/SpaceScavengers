@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   pitchSpeed: 5
-  pitchSmoothness: 0.05
+  pitchSmoothness: 0.1
   yawSpeed: 5
-  yawSmoothness: 0.05
-  rollSpeed: 5
-  rollSmoothness: 0.025
+  yawSmoothness: 0.1
+  rollSpeed: 10
+  rollSmoothness: 0.1
   maxSpeed: 10
   maxSpeedIncreasingSpeed: 6.5
   thrustIncreasingRate: 0.1
@@ -43,6 +43,13 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  speedThrustRatio: 0
+  speedThrustCurve:
+    serializedVersion: 2
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

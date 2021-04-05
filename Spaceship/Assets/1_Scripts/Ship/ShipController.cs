@@ -54,7 +54,7 @@ namespace Elie.Ship
         
         public void IncreaseRoll(float _value)
         {
-            roll += -_value * settings.rollSpeed * Time.deltaTime;
+            roll += _value * settings.rollSpeed * Time.deltaTime;
 
             if (roll > 360.0f )
             {
@@ -70,7 +70,7 @@ namespace Elie.Ship
         
         public void IncreaseYaw(float _value)
         {
-            yaw += -_value * settings.yawSpeed * Time.deltaTime;
+            yaw += _value * settings.yawSpeed * Time.deltaTime;
 
             if (yaw > 360.0f )
             {
@@ -86,7 +86,7 @@ namespace Elie.Ship
         
         public void IncreasePitch(float _value)
         {
-            pitch += -_value * settings.pitchSpeed * Time.deltaTime;
+            pitch += _value * settings.pitchSpeed * Time.deltaTime;
 
             if (pitch > 360.0f )
             {

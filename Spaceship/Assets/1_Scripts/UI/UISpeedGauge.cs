@@ -25,7 +25,7 @@ namespace Elie.Ship
             maxCursor.anchoredPosition = new Vector2(maxCursor.anchoredPosition.x,
                 Mathf.Lerp(0.0f, dimensions.sizeDelta.y, _maxCursor));
             
-            Debug.Log(Mathf.Lerp(0.0f, dimensions.sizeDelta.y, _maxCursor));
+            //Debug.Log(Mathf.Lerp(0.0f, dimensions.sizeDelta.y, _maxCursor));
 
             speedGauge.fillAmount = _speedValue;
         }

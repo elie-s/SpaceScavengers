@@ -14,15 +14,15 @@ namespace Elie.Ship
 
         private void Update()
         {
-            shipController.IncreaseRoll(Input.GetAxis(inputs.roll));
-            shipController.IncreaseYaw(Input.GetAxis(inputs.yaw));
-            shipController.IncreasePitch(Input.GetAxis(inputs.pitch));
+            shipController.IncreaseRoll(inputs.roll.value);
+            shipController.IncreaseYaw(inputs.yaw.value);
+            shipController.IncreasePitch(inputs.pitch.value);
             
-            shipController.IncreaseMaxSpeed(Input.GetAxis(inputs.maxSpeed));
-            shipController.IncreaseThrust(Input.GetAxis(inputs.thrustBase) + Input.GetAxis(inputs.thrustMultiplier));
-            shipController.SetStrafe(Input.GetAxis(inputs.strafeRight),
-                                      Input.GetAxis(inputs.strafeUp),
-                                   Input.GetAxis(inputs.strafeForward));
+            shipController.IncreaseMaxSpeed(inputs.maxSpeed.value);
+            shipController.IncreaseThrust(inputs.thrustBase.value + inputs.thrustMultiplier.value);
+            shipController.SetStrafe(inputs.strafeRight.value,
+                                     inputs.strafeUp.value,
+                                     inputs.strafeForward.value);
         }
         
         #endregion

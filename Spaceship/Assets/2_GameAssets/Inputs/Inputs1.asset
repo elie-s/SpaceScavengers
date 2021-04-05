@@ -12,13 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b271a4a1fa99c48852eea4543ed3fe, type: 3}
   m_Name: Inputs1
   m_EditorClassIdentifier: 
-  _pitch: 3
-  _yaw: 0
-  _roll: 0
-  _strafeRight: 0
-  _strafeUp: 0
-  _strafeForward: 0
-  _maxSpeed: 0
-  _maxThrust: 0
-  _thrustBase: 0
-  _thrustMultiplier: 0
+  pitch:
+    key: 3
+    inverted: 0
+  yaw:
+    key: 11
+    inverted: 1
+  roll:
+    key: 2
+    inverted: 1
+  strafeRight:
+    key: 0
+    inverted: 0
+  strafeUp:
+    key: 0
+    inverted: 0
+  strafeForward:
+    key: 0
+    inverted: 0
+  maxSpeed:
+    key: 0
+    inverted: 0
+  maxThrust:
+    key: 0
+    inverted: 0
+  thrustBase:
+    key: 7
+    inverted: 0
+  thrustMultiplier:
+    key: 8
+    inverted: 0
